@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manto</title>
+</head>
+<body>
+   
+
+
+
+
+    <script>
+    function rand(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+    // 1.Sukurkite funkciją, kuri patikrina, ar duotas 
+    // masyvas turi tam tikrą elementą. 
+
+    let mas = [1, 2, 3, 4, 5];
+
+  function arTuri(mas, element) {
+    return mas.includes(element)
+  }
+console.log(arTuri(mas, 3));
+console.log(arTuri(mas, 10));
+
+    // 2,Sukurkite funkciją, kuri apskaičiuoja kvadrato 
+    // plotą pagal kraštinės ilgį.
+    
+    const krastinesIlgis= 8
+    const plotas=kvadratoPlotas(krastinesIlgis)
+
+    function kvadratoPlotas(krastinesIlgis) {
+       return krastinesIlgis * krastinesIlgis; 
+     
+       }
+    console.log("Kvadrato plotas: " + plotas);
+
+    // 3.Sukurkite funkciją, kuri patikrina, ar duotas skaičius 
+    // yra teigiamas, neigiamas ar nulis.
+
+function name(a) {
+    if(a===0){
+        return 'Nulis'
+    }else if (a <0){
+        return 'Neigiamas'
+    }else {
+        return 'Teigiamas'
+    }
+          
+}
+console.log(name(-5));
+
+ // 4.Sukurkite funkciją, kuri surūšiuoja masyvą didėjimo 
+// arba mažėjimo tvarka.
+
+const masyvas =[];
+    for(let i =0; i < 30; i++){
+    masyvas.push(rand (0, 50));
+    }
+    masyvas.sort((a, b) => (a) -(b))
+
+console.log(masyvas);   
+
+// 5.Sukurkite funkciją, kuri išfiltruoja masyvą, 
+// palikdama tik nurodytą tipą elementų.
+
+const list = [1, 'cat', 2,  'dog', 3, 'mouse'];
+ 
+function filtruotiTipa(arr, tipas) {
+    return arr.filter(el=>typeof el ===tipas)
+    }
+    
+const words = filtruotiTipa(list, 'string')
+const number =filtruotiTipa(list, 'number')
+console.log(words,number);
+
+// 6.Sukurkite mini žaidimą 
+ // kuriame atėjęs žmogus galėtų spėti skaičių kurį sugalvojo kompiuteris. 
+// Jei spėtas skaičius per didelis išmeskite žinutę „Jūsų skaičius per didelis“. 
+ // Taip pat jei ir skaičius per mažas. Atspėjus skaičių turite parašyti 
+ // pasveikinimo žinutę ir pradėti žaidimą iš naujo
+
+
+ const slaptasSkaicius = rand(1, 10);
+
+function spekSkaiciu() {
+    const spejimas = prompt("Įveskite skaičių nuo 1 iki 10:");
+
+    if (spejimas < 1 || spejimas > 10 || isNaN(spejimas)) {
+        alert("Neteisingas įvestas skaičius. Įveskite skaičių nuo 1 iki 10.");
+        return;
+    }
+    if (spejimas === slaptasSkaicius) {
+        alert("Sveikiname! Jūs atspėjote teisingą skaičių!");
+        slaptasSkaicius = rand(1, 10);
+    } else if (spejimas > slaptasSkaicius) {
+        alert("Jūsų skaičius per didelis. Bandykite dar kartą.");
+    } else {
+        alert("Jūsų skaičius per mažas. Bandykite dar kartą.");
+    }
+}
+spekSkaiciu();
+
+    </script>
+</body>
+</html>
