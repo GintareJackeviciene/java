@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaisiai</title>
+</head>
+
+<body>
+    <script>
+        // Sukurkite klasę Vaisius, kuris turi: 
+        // savybę dydis rand 5 - 25; 
+        // savybę id rand 1000000 - 9999999 
+        // savybę prakastas false 
+
+        // Sukurkite metodą prakasti(), kuris savybės prakąstas reikšmę keistų į true. 
+        // Sukurkite klasę Krepšys, kuri turi statinę savybę vaisiai, kuri yra masyvas. 
+        // Klasėje Krepšys sukurkite statinį metodą pripildyti(), kuris savybę vaisiai 
+        // užpildytų 20-timi Vaisius objektų ir išrūšiuotų juos pagal vaisiaus dydį nuo 
+        // didžiausio iki mažiausio. Klasėje Krepšys sukurti statinį metodą isimti(), 
+        // kuris iš vaisiai masyvo išimtų (ištrintų iš masyvo) pirmą (didžiausią) vaisių ir jį 
+        // grąžintų. Išėmus kelis vaisius ir vėl paleidus metodą papildyti(), jis turi 
+        // padaryti tai ką sako metodo pavadinimas - papildyti masyvą iki 
+        // pilno (20 elementų), o ne perrašyti visus vaisius iš naujo (tai galima stebėti pagal vaisių id). 
+        // Išorėje (globale) sukurti kintamąjį grauztukai kuris yra objektas. 
+        // Iš krepšelio išimti vaisiai turi būti pridedami į šį objektą. 
+        // Kaip raktus naudoti Vaisius objekto id savybę. Prieš patalpinant vaisių į 
+        // grauztukai objektą, vaisius turi būti “prakąstas”, Vaisius objekte 
+        // paleidžiant prakasti() metodą.
+
+
+        function rand(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        class Vaisius {
+            constructor() {
+                this.dydis = rand(5, 45);
+                this.id = rand(1000000, 9999999);
+                this.prakastas = false;
+            }
+            prakasti() {
+                this.prakastas = true;
+            }
+
+        }
+
+        class Krepsys {
+            static vaisiai = [];
+
+            static pripildyti() {
+                this.vaisiai = [];
+
+                for (let i = 0; i <= 20; i++) {
+                    const vaisius = new Vaisius();
+                    this.vaisiai.push(vaisius);
+                }
+                this.vaisiai.sort((a, b) => b.dydis - a.dydis);
+            }
+
+            static isimti() {
+                if (this.vaisiai.length > 0) {
+                    const didziausiasVaisius = this.vaisiai.shift()
+                    return didziausiasVaisius
+                }
+            }
+
+        }
+
+const grauztukai = {};
+
+        Krepsys.pripildyti()
+        console.log(Krepsys.vaisiai);
+        Krepsys.isimti()
+      
+        console.log(Krepsys.isimti());
+        console.log(Krepsys.isimti());
+        console.log(Krepsys.isimti());
+
+    </script>
+</body>
+
+</html>

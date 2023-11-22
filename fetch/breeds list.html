@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BREEDS LIST</title>
+
+    <style>
+        select,
+        select>option {
+            text-transform: capitalize;
+            font-size: 20px;
+
+        }
+
+        body {
+            background-color: rgb(185 205 194);
+        }
+
+        h1 {
+            margin: 5px;
+        }
+
+        img {
+            max-width: 50%;
+        }
+
+        .box {
+            height: 50px;
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 20px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>BREEDS LIST</h1>
+        <select></select>
+        <div class="res"></div>
+    </div>
+    <script>
+
+
+        fetch('https://dog.ceo/api/breeds/list/all')
+            .then(resp => resp.json())
+            .then(resp => {
+                if (resp.status !== 'success')
+                    return;
+
+
+                let res = '';
+
+                for (const key in resp.message) {
+                    // const option = document.createElement('option');
+                    // option.textContent = key;
+                    // document.querySelector('select').appendChild(option);
+
+                    if (resp.message[key].length > 0) {
+                        res += resp.message[key].map(subreed =>
+                            `<option value="${key}/${subreed}">
+                            ${(subreed + ' ' + key)}
+                        </option>`
+                        ).join('');
+                    } else {
+                        res += `<option value="${key}">${(key)}</option>`;
+                    }
+                }
+
+                document.querySelector('select').innerHTML = `${res}`;
+            });
+
+        document.querySelector('select').addEventListener('change', (e) => {
+            fetch(`https://dog.ceo/api/breed/${e.target.value}/images/random`)
+                .then(resp => resp.json())
+                .then(resp => {
+                    document.querySelector('.res').innerHTML = `<img src="${resp.message}" />`;
+                });
+        });
+
+
+    </script>
+</body>
+
+</html>

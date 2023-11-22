@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Televizorius</title>
+</head>
+
+<body>
+    <script>
+        // Aprašykite klasę “Televizorius” su nurodytomis savybėmis: 
+        // Gamintojas, kanalas ir garsas. Gamintojo pavadinimą priskirkite 
+        // konstruktoriuje kaip gautą parametrą. Vos tik įjungus televizorių 
+        // turėtų būti parinktas pirmas kanalas, o garso lygis 50. Sukurkite 
+        // metodus kurie padidintų ir sumažintų televizoriaus garsą, tačiau 
+        // šis niekuomet negali būti žemiau nei 0 ir aukščiau nei 100. 
+        // Sukurkite metodą kuris keistų kanalą, tačiau atkreipkite dėmesį, 
+        // kad gal televizorius jų turi tik 50, tad jei pultelyje įvesite didesnį 
+        // skaičių, kanalas turi būti pakeičiamas į pirmajį.
+        // Sukurkite metodą, kuris atstatytų televizorių atgal į gamyklinius 
+        // parametrus.
+        // Sukurkite metodą, kuris grąžintų atgal eilutę “Televizorius ‘Sony’ 
+        // šiuo metu rodo 8 kanalą. Garso lygis 76.”
+
+        class Televizorius {
+            kanalas = 1;
+            garsas = 50;
+
+            constructor(gamintojas) {
+                this.gamintojas = gamintojas
+
+            }
+
+            setGarsas(lygis) {
+                this.garsas = lygis > 100 || lygis < 0 ? 50 : lygis;
+            }
+
+            setKanalas(kanalas) {
+                this.kanalas = kanalas > 50 || kanalas <= 0 ? 1 : kanalas;
+            }
+            atstatyti() {
+                this.kanalas = 1;
+                this.garsas = 50;
+            }
+
+            statusas() {
+                return `Televizorius ${this.gamintojas} siuo metu rodo ${this.kanalas} kanala. Garso lygis ${this.garsas}`
+            }
+
+        }
+        const tv = new Televizorius('Sony')
+       
+        tv.setGarsas(1000)
+        tv.setKanalas(3)
+        tv.atstatyti()
+        console.log(tv.statusas());
+
+    </script>
+</body>
+
+</html>
