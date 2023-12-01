@@ -35,7 +35,7 @@ export default () => {
     const handleEdit = (index, text) => {
         if(typeof edit === 'number') {
             data[index].value = value; 
-            setEdit([...data]);
+            setData([...data]);
         } else { 
             setEdit(index);
             setValue(text);
