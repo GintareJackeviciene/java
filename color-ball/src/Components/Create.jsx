@@ -44,9 +44,9 @@ export default function Create({ setCreate, addMessage }) {
     return (
         <div className="card mt-5">
             <div className="card-body">
-                <h5 className="card-title">Create new Color</h5>
+                <h5 className="card-title">Naujos sąskaitos sukūrimas</h5>
                 <div className="mb-3">
-                    <label className="form-label">Color <span className="error">{errors.color ?? null}</span></label>
+                    <label className="form-label">Color </label>
                     <input type="color" value={color} onChange={e => setColor(e.target.value)} className="form-control form-control-color" />
                 </div>
                 <div className="mb-3">

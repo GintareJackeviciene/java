@@ -181,3 +181,53 @@ h4{
 .col-auto  ::placeholder{
   color: white;
 }
+.keturi h3{
+  text-align: start;
+  margin-top: 40px;
+  margin-left: 80px;
+}
+.keturi li{
+  background-color: transparent;
+  border: none;
+}
+.keturi select{
+  background-color: grey;
+  border: none;
+}
+.keturi button{
+  background-color: rgb(65, 64, 64); 
+  margin-bottom: 10px;
+  text-align: start;
+  margin-left: 50px;
+  color: white;
+  height: 80px;
+  font-size: 25px;
+  border-radius: 0px;
+  
+}
+.keturi ul{
+  list-style: none;
+}
+.keturi p{
+text-align: start;
+  }
+footer p{
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+footer  a{
+color: white;
+}
+footer ul {
+  list-style: none;
+ 
+}
+footer .li{
+  display: flex;
+  justify-content: space-around;
+  
+}
+footer li{
+  margin-bottom: 20px;
+}
+

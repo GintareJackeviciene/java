@@ -1,4 +1,4 @@
-
+@import url(https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css);
 
 body {
   margin: 0;
@@ -7,37 +7,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(168, 168, 168);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.box{
-  width: 100px;
-  height: 100px;
-  background-color: blue;
-  margin-top: 10px;
-  margin-left: 20px;
-}
-.box2{
- 
-}
-.btn{
-  width: 100px;
-  height: 40px;
-  background-color: rgb(227, 241, 237);
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-  margin-left: 20px;
-}
-.circle{
-  border-radius: 50px;
-}
-.square{
-  border-radius: 0;
-}
-
-
-

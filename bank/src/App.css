@@ -1,0 +1,12 @@
+.modal {
+  display: block;
+  background-color: #ece0e088;
+}
+.input{
+  border-radius: 5px;
+  border: 1px solid grey;
+  
+}
+.btn{
+  margin-left: 4px;
+}
